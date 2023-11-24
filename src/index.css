@@ -1,0 +1,115 @@
+
+    .link-underline {
+        border-bottom-width: 0;
+        background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+        background-size: 0 3px;
+        background-position: 50% 100%;
+        background-repeat: no-repeat;
+        transition: background-size .5s ease-in-out;
+
+    }
+
+    .link-underline-black {
+        background-image: linear-gradient(transparent, transparent), linear-gradient(rgb(4, 66, 42), rgb(4, 66, 42))
+    }
+
+    .link-underline:hover {
+        background-size: 100% 3px;
+        background-position: 50% 100%
+    }
+
+    #firstBanner img {
+        height: 550px;
+    }
+
+    #secondBanner img {
+        height: 255px;
+    }
+
+    path{
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+    }
+
+    svg{
+      stroke-width: 1.5;
+    }
+
+    svg path{
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    nav{
+      width: 100%;
+      position: fixed;
+      z-index: 999;
+    }
+
+    /* -----------------navbar hover----------------------- */
+
+    #button{
+      color: orange;
+      
+    }
+    #button2{
+      color: orange;
+    }
+    #button3{
+      color: orange;
+    }
+    #button4{
+      color: orange;
+    }
+    .click {
+      
+      color: white;
+      
+    }
+    #navTitle{
+      font-family: 'Playfair Display', serif;
+    }
+    #title{
+      font-family: 'Roboto', sans-serif;
+    }
+    #product,#cardInfo{
+      font-family: 'Open Sans', sans-serif;
+    }
+    html{
+      scroll-behavior: smooth;
+    }
+    .img1:hover{
+      background-color: aqua;
+    }
+    #productDetail,#cardHead{
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .hover-underline-animation {
+      display: inline-block;
+      position: relative;
+      color: white;
+      margin-top: -10px;
+    }
+    .hover-underline-animation:hover{
+      color: green;
+      font-weight: bold;
+    }
+    
+    .hover-underline-animation:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: greenyellow;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    
+    .hover-underline-animation:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }

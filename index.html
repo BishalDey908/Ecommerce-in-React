@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+
+    
+    
+  
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    
+
+
+    <!-- <script>
+      document.getElementById("hamburger").onclick = function toggleMenu() {
+          const navToggle = document.getElementsByClassName("toggle");
+          for (let i = 0; i < navToggle.length; i++) {
+              navToggle.item(i).classList.toggle("hidden");
+          }
+      };
+  </script> -->
+
+  <script src="./script.js"></script>
+  
+  
+</script>
+
+
+
+<script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
+
+<script>
+  
+</script>
+<!-- ----------------------for send mail----------------------- -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+  function sendMale(){
+    Email.send({
+      Host : "smtp.elasticemail.com",
+      Username : "bishaldey7439@gmail.com",
+      Password : "D75DAA9F68E377785E002281A7CE00685C7A",
+      To : 'bishaldey7439@gmail.com',
+      From : document.querySelector("#email").value,
+      Subject : "This is the subject",
+      Body : "And this is the body"
+  }).then(
+    message => alert(message)
+  );
+  }
+</script>
+
+<script>
+  
+  
+</script>
+  </body>
+</html>

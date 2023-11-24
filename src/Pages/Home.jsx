@@ -178,7 +178,7 @@ const Home = () => {
         {/* --------------------------------------------------firstBannerStart------------------------- */}
     
     <div>
-        <img src={require("../assests/NEW Stock.gif")} alt="" className="mx-auto my-11" />
+        <img src={require("../assests/NEW Stock.gif")} alt="" className="mx-auto my-10" />
     </div>
           {/* ------------------------------------------------card Heading-----------------------------*/}
           <div>

@@ -19,7 +19,7 @@ const Slider = () => {
       )}
     >
       <img
-        src={require("../assests/1.png")}
+        src={require("../assests/4.png")}
         alt="image 1"
         className="h-full w-full object-cover"
       />
@@ -34,7 +34,7 @@ const Slider = () => {
         className="h-full w-full object-cover"
       />
       <img
-        src={require("../assests/4.png")}
+        src={require("../assests/1.png")}
         alt="image 1"
         className="h-full w-full object-cover"
       />

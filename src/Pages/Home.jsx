@@ -1,49 +1,13 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import Slider from "./Slider";
 import Footer from "./Footer";
-import { useState } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css"
+import ScrollAnimation from "./ScrollAnimation";
+import Navbar from "./Navbar";
+import { useEffect } from "react";
 
 const Home = () => {
-    const { loginWithRedirect } = useAuth0();
-    const { logout } = useAuth0();
-    const { isAuthenticated,user  } = useAuth0();
-            
-    let li1 = document.querySelector("#title1")
-    let li2 = document.querySelector("#title2")
-        let li3 = document.querySelector("#title3")
-        let li4 = document.querySelector("#title4")
-    function title1(){
-        
-        
-        li1.setAttribute("id", "button2")
-        li2.removeAttribute("id")
-        li3.removeAttribute("id")
-        li4.removeAttribute("id")
-    }
-    function title2(){
-        
-        li2.setAttribute("id", "button2")
-        li1.removeAttribute("id")
-        li3.removeAttribute("id")
-        li4.removeAttribute("id")
-    }
-    function title3(){
-        
-        li3.setAttribute("id", "button2")
-        li1.removeAttribute("id")
-        li2.removeAttribute("id")
-        li4.removeAttribute("id")
-    }
-    function title4(){
-        
-        li4.setAttribute("id", "button2")
-        li1.removeAttribute("id")
-        li2.removeAttribute("id")
-        li3.removeAttribute("id")
-        navigate("/testimonials")
-    }
-
     const navigate=useNavigate()
     function shree1(){
         navigate("/shree1")
@@ -69,91 +33,23 @@ const Home = () => {
     function jewellery(){
         navigate("/jewellery")
     }
-    const [close,setClose]=useState(1)
-
-    function openClose(){
-        if(close===0){
-        document.querySelector("#mobile-menu-2").style.display="none"
-        setClose(close+1)
-        }
-        else if(close===1){
-          document.querySelector("#mobile-menu-2").style.display="block"
-        setClose(0)
-        }
-     }
+    useEffect(()=>{
+        Aos.init({
+            offset: 150,
+            duration: 1000,
+        })
+    },[])
+    
     return (
     
         <>
         
         {/* -----------------------------------navbar-------------------------------- */}
     
-    
-        <nav className=" border-gray-200 py-2.5 bg-indigo-500 xl:h-16 ">
-        <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-            <a href="#" className="flex items-center my-auto">
-                <img src={require("../assests/logo-png-removebg-preview.png")} className="mr-3 sm:h-9 w-40" alt="Landwind Logo"/>
-                
-            </a>
-            <div className="flex items-center lg:order-2 gap-2">
-                <div className="hidden mt-2 mr-4 sm:inline-block">
-                    <span></span>
-                </div>
-    
-                
-                <button data-collapse-toggle="mobile-menu-2" type="button"
-                
-                    className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 "
-                    aria-controls="mobile-menu-2" aria-expanded="true" >
-                    <span className="sr-only">Open main menu</span>
-                    <svg onClick={openClose} className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path 
-                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                            ></path>
-                    </svg>
-                    <svg className="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path 
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            ></path>
-                    </svg>
-                </button>
-                {/* --------------------condition to show login and logout button------------------------ */}
-                {
-                    isAuthenticated ? 
-    
-                    <button type="button" className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-auto" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button> :
-    
-                    <button type="button" className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-auto" onClick={() => loginWithRedirect()}>Log In</button>
-                }
-                
-                
-                
-            </div>
-            <div className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                <li>{isAuthenticated && <p className=' text-center xl:my-0 my-10 text-purple-950 font-bold xl:hidden block'>Welcome {user.name}</p>}</li>
-                    <li>
-                        <a href="#" id="title1"
-                            className=" hover-underline-animation block py-2 pl-3 pr-4 text-white  rounded lg:bg-transparent  lg:p-0  xl:text-xl text-center w-full text-lg "
-                            aria-current="page" onClick={title1}>Home</a>
-                    </li>
-                    <li>
-                        <a href="#" id="title2"
-                            className="hover-underline-animation block py-2 pl-3 pr-4 text-gray-700   border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 xl:text-xl text-center w-full text-lg border-b" onClick={title2}>About</a>
-                    </li>
-                    <li>
-                        <a href="#" id="title3"
-                            className="hover-underline-animation block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 xl:text-xl text-center w-full text-lg pt-4" onClick={title3}>Contact Us</a>
-                    </li>
-                    <li>
-                        <button  id="title4"
-                            className="hover-underline-animation block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 xl:text-xl text-center w-full text-lg pt-4" onClick={title4}>Testimonials</button>
-                    </li>
-                    <li>{isAuthenticated && <p className=' text-center xl:my-0 my-10 text-purple-950 font-bold xl:block hidden'><span className='text-lg'>WELCOME</span> {user.name}</p>}</li>
-                </ul>
-            </div>
-            
-        </div>
-    </nav>
+        
+        <Navbar/>
+   
+    <ScrollAnimation/>
         {/* -----------------------------------navbarEnd-------------------------------- */}
     
     
@@ -166,7 +62,7 @@ const Home = () => {
     
     
 
-    <div className="h-full xl:mt-0 md:pt-14 pt-16">
+    <div className="h-full xl:mt-0 md:pt-14 pt-16 ">
     <Slider/>
 
     </div>
@@ -177,12 +73,12 @@ const Home = () => {
         
         {/* --------------------------------------------------firstBannerStart------------------------- */}
     
-    <div>
+    <div data-aos="zoom-in">
         <img src={require("../assests/NEW Stock.gif")} alt="" className="mx-auto my-11" />
     </div>
           {/* ------------------------------------------------card Heading-----------------------------*/}
-          <div>
-            <h1 className="text-black text-center xl:text-4xl md:text-4xl my-20 text-4xl">Product Catagory</h1>
+          <div data-aos="fade-up">
+            <h1 id="firstheading" className="text-black text-center xl:text-6xl md:text-4xl my-20 text-4xl font-bold">Product Catagory</h1>
         </div>
           {/* ------------------------------------------------card Heading End-----------------------------*/}
     
@@ -191,19 +87,19 @@ const Home = () => {
           <div
             className="grid xl:grid-flow-col xl:grid-rows-2  md:grid-flow-col md:grid-rows-2 place-content-center md:gap-2 mt-4 md:mx-2 gap-8">
             {/* <!-- 1st Catagory Card --> */}
-            <div
-                className="xl:max-w-sm xl:gap-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-w-xs mx-12 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
+            <div 
+                className="xl:max-w-sm xl:gap-8 bg-white  rounded-lg  dark:bg-gray-800 max-w-xs mx-12 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 shadow-2xl shadow-slate-600">
                 <a href="#">
                     <img className="rounded-t-lg" src={require("../assests/box1.jpg")} alt="" />
                 </a>
                 <div className="p-5">
                     <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Clothes</h5>
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">CLOTHES</h5>
                     </a>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
                         acquisitions of 2021 so far, in reverse chronological order.</p>
                     <button onClick={clothes}
-                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        className="inline-flex items-center px-3 py-2   text-center text-white bg-blue-700 rounded-lg hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-green-400 dark:focus:ring-blue-800 font-bold text-l">
                         Explore
                         <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 10">
@@ -217,7 +113,7 @@ const Home = () => {
             {/* 2nd catagory card----------------- */}
             
             <div
-                className="xl:max-w-sm xl:gap-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-w-xs mx-12 xl:my-6 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
+                className="xl:max-w-sm xl:gap-8 bg-white  rounded-lg shadow dark:bg-gray-800  max-w-xs mx-12 xl:my-6 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
                 <a href="#">
                     <img className="rounded-t-lg" src="https://img.theweek.in/content/dam/week/news/health/images/2020/5/7/Xiaomi-Mi-10-5G-phone.jpg" alt="" />
                 </a>
@@ -242,13 +138,13 @@ const Home = () => {
             {/* 3rd Catagory card */}
     
             <div
-                className="xl:max-w-sm xl:gap-8  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-w-xs mx-12 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
+                className="xl:max-w-sm xl:gap-8  bg-white  rounded-lg shadow dark:bg-gray-800  max-w-xs mx-12 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
                 <a href="#">
                     <img className="rounded-t-lg" src="https://img.freepik.com/premium-photo/set-contemporary-house-appliances-standing-parquet-floor_613961-331.jpg?size=626&ext=jpg&ga=GA1.1.1803636316.1700611200&semt=ais" alt="" />
                 </a>
                 <div className="p-5">
                     <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Home appliances</h5>
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">HOME APPLINCES</h5>
                     </a>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
                         acquisitions of 2021 so far, in reverse chronological order.</p>
@@ -267,7 +163,7 @@ const Home = () => {
             {/* 4th Catagory Card */}
     
             <div
-                className="xl:max-w-sm xl:gap-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-w-xs mx-12 xl:my-6 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
+                className="xl:max-w-sm xl:gap-8 bg-white  rounded-lg shadow dark:bg-gray-800  max-w-xs mx-12 xl:my-6 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
                 <a href="#">
                     <img className="rounded-t-lg" src={require("../assests/r.jpg")} alt="" />
                 </a>
@@ -294,7 +190,7 @@ const Home = () => {
             {/* <!-- 2nd Banner --> */}
         <br/>
     
-        <div id="secondBanner" className=" ">
+        <div id="secondBanner" className=" " data-aos="zoom-in">
             <img className="xl:w-full" src={require("../assests/Black Liquid Minimalist Daily Quotes LinkedIn Banner.gif")} alt=""
                 />
         </div>
@@ -303,8 +199,8 @@ const Home = () => {
     
         {/* <!-- tranding Product --> */}
         <br/>
-        <div className="grid place-content-center">
-            <h1 className="xl:text-6xl  md:text-4xl  text-4xl  text-black xl:mt-24 xl:mb-20 my-14">Tranding Product</h1>
+        <div data-aos="fade-up" className="grid place-content-center">
+            <h1 id="secondheading" className="xl:text-6xl  md:text-4xl  text-4xl  text-black xl:mt-24 xl:mb-20 my-14">Tranding Product</h1>
         </div>
     
         {/* <!-- -------------------------------------------------------- -->
@@ -313,8 +209,8 @@ const Home = () => {
             className="grid xl:grid-flow-col grid-flow-row md:flex-wrap gap-4 my-5 xl:place-content-center justify-center mx-24">
     
     
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div data-aos="fade-up"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -376,8 +272,8 @@ const Home = () => {
             {/* <!-- -------------------------------------------------------- -->
             <!-- 2nd card --> */}
     
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div data-aos="fade-down"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -437,8 +333,8 @@ const Home = () => {
             {/* <!-- -------------------------------------------------------- -->
             <!-- 3rd card --> */}
     
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div data-aos="fade-up"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -496,8 +392,8 @@ const Home = () => {
             </div>
     
     
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div data-aos="fade-down"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -560,8 +456,8 @@ const Home = () => {
     
         {/* <!-- -------------------------------------------------------- -->
     <!-- value for money --> */}
-        <div className="">
-            <h1 className="text-center text-4xl text-black  xl:mt-28 xl:mb-20 xl:text-6xl my-14">Value for Money</h1>
+        <div className="" data-aos="fade-up">
+            <h1 id="thirdheading" className="text-center text-4xl text-black  xl:mt-28 xl:mb-20 xl:text-6xl my-14">Value for Money</h1>
         </div>
         
         {/* <!-- -------------------------------------------------------- -->
@@ -569,10 +465,10 @@ const Home = () => {
     
     {/* <!-- -------------------------------------------------------- -->
     <!-- creda(value for money) --> */}
-    <div className="">
-        <div className="grid xl:grid-flow-col grid-flow-row md:flex-wrap gap-4 my-5 xl:place-content-center justify-center mx-24 ">
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="" >
+        <div  className="grid xl:grid-flow-col grid-flow-row md:flex-wrap gap-4 my-5 xl:place-content-center justify-center mx-24 ">
+            <div data-aos="flip-left"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -630,8 +526,8 @@ const Home = () => {
     
             {/* <!-- -------------------------------------------------------- -->
             <!-- second Card (value for money)------ --> */}
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+            <div data-aos="flip-right"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800  ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -689,8 +585,8 @@ const Home = () => {
             
             {/* <!-- ----------------------------------------------thirdCard----------------------------------------------- --> */}
     
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div data-aos="flip-left"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -749,15 +645,15 @@ const Home = () => {
     </div>
 
 
-    <div className="">
-            <h1 className="text-center text-4xl text-black  xl:mt-28 xl:mb-20 xl:text-6xl my-14">Today Offer</h1>
+    <div className="" data-aos="fade-up">
+            <h1 id="fourthHeading" className="text-center text-4xl text-black  xl:mt-28 xl:mb-20 xl:text-6xl my-14">Today Offer</h1>
         </div>
     {/* <!-- -------------------------------------------------------- -->
     <!-- Today Offer --> */}
-    <div className="">
+    <div className="" >
         <div className="grid xl:grid-flow-col grid-flow-row md:flex-wrap gap-4 my-5 xl:place-content-center justify-center mx-24 ">
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div data-aos="zoom-in"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -815,8 +711,8 @@ const Home = () => {
     
             {/* <!-- -------------------------------------------------------- -->
             <!-- second Card (value for money)------ --> */}
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+            <div data-aos="zoom-in"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800  ">
                 <div className="flex place-content-center">
                     <a href="#">
     
@@ -874,8 +770,8 @@ const Home = () => {
             
             {/* <!-- ----------------------------------------------thirdCard----------------------------------------------- --> */}
     
-            <div
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div data-aos="zoom-in"
+                className="w-full max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
                 <div className="flex place-content-center">
                     <a href="#">
     

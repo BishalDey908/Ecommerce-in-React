@@ -16,6 +16,9 @@ import Shree2Checkout from './CheckOutPages/Shree2Checkout';
 import Adressformshree3 from './CheckOutPages/Adressformshree3';
 import Shree3Checkout from './CheckOutPages/Shree3Checkout';
 import Testimonials from './Pages/Testimonials';
+import LandingPage from './Pages/LandingPage';
+import ContactUs from './Pages/ContactUs';
+import About from './Pages/About';
 
 
 function App() {
@@ -25,7 +28,8 @@ function App() {
     
     <>
     <Routes>
-    <Route  path='/' Component={Home} ></Route>
+    <Route  path='/home' Component={Home} ></Route>
+    <Route  path='/' Component={LandingPage} ></Route>
        <Route path='/shree1' Component={Shree1}></Route>
        <Route path='/shree2' Component={Shree2}></Route>
        <Route path='/shree3' Component={Shree3}></Route>
@@ -34,6 +38,8 @@ function App() {
        <Route path='/homeapplinces' Component={homeapplinces}></Route>
        <Route path='/phones' Component={phones}></Route>
        <Route path='/jewellery' Component={Jewellery}></Route>
+       <Route path='/contactUs' Component={ContactUs}></Route>
+       <Route path='/about' Component={About}></Route>
 
        {/* checkout Pages */}
        <Route path='/shree1checkout' Component={Shree1Checkout}></Route>

@@ -1,7 +1,7 @@
 const Card = ({title,img}) => {
   return (
     <>
-      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:mx-auto md:mb-10 md:w-96 w-72 mx-auto mt-10 xl:w-80">
+      <div className="max-w-sm bg-white  rounded-lg  dark:bg-gray-800 shadow-xl shadow-slate-400 md:mx-auto md:mb-10 md:w-96 w-72 mx-auto mt-10 xl:w-80">
                         <a href="#">
                             <img className="rounded-t-lg xl:w-80 md:" src={img} alt="" />
                         </a>

@@ -58,10 +58,12 @@ const Navbar = () => {
                             ></path>
                     </svg>
                 </button>
-                <div className=" hidden xl:flex">
-                 <p>{isAuthenticated &&  <img src={user.picture} alt="" className="h-10 xl:block hidden rounded-full mr-2 mx-auto" /> }</p>
+                <div className="xl:flex hidden ">
+                <div>{isAuthenticated &&  <img className="h-10 rounded-full" src={user.picture} alt=""  />}</div>
+                <p>{isAuthenticated &&  <p className="text-white font-bold  pt-2 ml-2">{user.nickname}</p> }</p>
                 </div>
                 {/* --------------------condition to show login and logout button------------------------ */}
+                
                 {
                     isAuthenticated ? 
     
@@ -75,7 +77,10 @@ const Navbar = () => {
             </div>
             <div className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 ">
-                <li>{isAuthenticated &&  <img src={user.picture} alt="" className="h-10 xl:hidden rounded-full my-4 mx-auto block" /> }</li>
+                <div className="xl:hidden flex justify-center md:my-5 my-5">
+                <div>{isAuthenticated &&  <img className="h-10 rounded-full" src={user.picture} alt=""  />}</div>
+                <p>{isAuthenticated &&  <p className=" pt-2 ml-2 text-white">{user.nickname}</p> }</p>
+                </div>
                     <li>
                         <Link to="/home"  id="title1"
                             className=" hover-underline-animation block py-2 pl-3 pr-4 text-white  rounded lg:bg-transparent  lg:p-0  xl:text-xl text-center w-full text-lg "

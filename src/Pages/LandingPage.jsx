@@ -88,7 +88,10 @@ const LandingPage = () => {
                     </svg>
                 </button>
                 <div className=" hidden xl:flex">
-                <p>{isAuthenticated &&  <img src={user.picture} alt="" className="h-10 xl:block hidden rounded-full mr-2" /> }</p>
+                <div className="xl:flex hidden ">
+                <div>{isAuthenticated &&  <img className="h-10 rounded-full" src={user.picture} alt=""  />}</div>
+                <p>{isAuthenticated &&  <p className=" pt-2 ml-2 text-white font-bold">{user.nickname}</p> }</p>
+                </div>
                 </div>
                 {/* --------------------condition to show login and logout button------------------------ */}
                 {
@@ -100,11 +103,11 @@ const LandingPage = () => {
                 }
                 
                 
-                
+                {/* <img src={user.name} alt="" className="h-10 xl:hidden block rounded-full mx-auto my-4 " /> */}
             </div>
             <div className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                <li>{isAuthenticated &&  <img src={user.picture} alt="" className="h-10 xl:hidden block rounded-full mx-auto my-4 " /> }</li>
+                <li>{isAuthenticated && <p className="xl:hidden block">{user.name}</p>}</li>
                     <li>
                         <Link to="/home"  id="title1"
                             className=" hover-underline-animation block py-2 pl-3 pr-4 text-white  rounded lg:bg-transparent  lg:p-0  xl:text-xl text-center w-full text-lg "
@@ -138,7 +141,7 @@ const LandingPage = () => {
         <div className="h-10 mt-4 text-blue-300 font-bold"><span className="text-2xl my-2" ref={el} /></div>
         <div className="my-10">
         
-        <button  className="vibrate-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2 text-2xl" onClick={()=>{
+        <button  className=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2 text-2xl" onClick={()=>{
             home()
             alert()
         }}>Explore Now</button>

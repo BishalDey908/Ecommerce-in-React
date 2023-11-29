@@ -7,6 +7,7 @@ import ScrollAnimation from "./ScrollAnimation";
 import Navbar from "./Navbar";
 import { useEffect } from "react";
 
+
 const Home = () => {
     const navigate=useNavigate()
     function shree1(){
@@ -113,7 +114,7 @@ const Home = () => {
             {/* 2nd catagory card----------------- */}
             
             <div
-                className="xl:max-w-sm xl:gap-8 bg-white  rounded-lg shadow dark:bg-gray-800  max-w-xs mx-12 xl:my-6 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
+                className="xl:max-w-sm xl:gap-8 bg-white  rounded-lg  dark:bg-gray-800 max-w-xs mx-12 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 shadow-2xl shadow-slate-600 xl:my-6">
                 <a href="#">
                     <img className="rounded-t-lg" src="https://img.theweek.in/content/dam/week/news/health/images/2020/5/7/Xiaomi-Mi-10-5G-phone.jpg" alt="" />
                 </a>
@@ -124,7 +125,7 @@ const Home = () => {
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
                         acquisitions of 2021 so far, in reverse chronological order.</p>
                     <button onClick={phones}
-                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        className="inline-flex items-center px-3 py-2   text-center text-white bg-blue-700 rounded-lg hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-green-400 dark:focus:ring-blue-800 font-bold text-l">
                         Explore
                         <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 10">
@@ -138,7 +139,7 @@ const Home = () => {
             {/* 3rd Catagory card */}
     
             <div
-                className="xl:max-w-sm xl:gap-8  bg-white  rounded-lg shadow dark:bg-gray-800  max-w-xs mx-12 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
+                className="xl:max-w-sm xl:gap-8 bg-white  rounded-lg  dark:bg-gray-800 max-w-xs mx-12 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 shadow-2xl shadow-slate-600 xl:my-6">
                 <a href="#">
                     <img className="rounded-t-lg" src="https://img.freepik.com/premium-photo/set-contemporary-house-appliances-standing-parquet-floor_613961-331.jpg?size=626&ext=jpg&ga=GA1.1.1803636316.1700611200&semt=ais" alt="" />
                 </a>
@@ -149,7 +150,7 @@ const Home = () => {
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
                         acquisitions of 2021 so far, in reverse chronological order.</p>
                     <button onClick={Homeapplinces}
-                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        className="inline-flex items-center px-3 py-2   text-center text-white bg-blue-700 rounded-lg hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-green-400 dark:focus:ring-blue-800 font-bold text-l">
                         Explore
                         <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 10">
@@ -163,7 +164,7 @@ const Home = () => {
             {/* 4th Catagory Card */}
     
             <div
-                className="xl:max-w-sm xl:gap-8 bg-white  rounded-lg shadow dark:bg-gray-800  max-w-xs mx-12 xl:my-6 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 hover:bg-indigo-900">
+                className="xl:max-w-sm xl:gap-8 bg-white  rounded-lg  dark:bg-gray-800 max-w-xs mx-12 hover:shadow-2xl hover:shadow-gray-800 transition-all duration-300 hover:scale-105 shadow-2xl shadow-slate-600 xl:my-6">
                 <a href="#">
                     <img className="rounded-t-lg" src={require("../assests/r.jpg")} alt="" />
                 </a>
@@ -174,7 +175,7 @@ const Home = () => {
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
                         acquisitions of 2021 so far, in reverse chronological order.</p>
                     <button onClick={jewellery}
-                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        className="inline-flex items-center px-3 py-2   text-center text-white bg-blue-700 rounded-lg hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-green-400 dark:focus:ring-blue-800 font-bold text-l">
                         Explore
                         <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 10">

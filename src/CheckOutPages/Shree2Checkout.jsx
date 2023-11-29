@@ -35,7 +35,7 @@ const Shree2Checkout = () => {
                 <br />
                 <br />
                 <h3 className="text-xl mt-[-15px] mb-[15px]">Rs: 800</h3>
-                <h3 className="text-xl mt-[-15px] mb-[15px]">Delevery Charge: 100</h3>
+                <h3 className="text-xl mt-[-15px] mb-[15px]">Delivery Charge: 100</h3>
                 <hr />
                 <br />
                 <h3 className="text-xl mt-[-15px] mb-[15px]">Total: 900</h3>

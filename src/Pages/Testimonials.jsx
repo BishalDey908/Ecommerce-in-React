@@ -2,71 +2,87 @@
 import Footer from "./Footer"
 import Navbar from "./Navbar"
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 const Testimonials = () => {
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      };
+
   return (
     <>
       
 <Navbar/>
-<div className="pt-28 mx-20">
-<div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 bg-white dark:bg-gray-800">
-    <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
-        <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Very easy this was to integrate</h3>
-            <p className="my-4">If you care for your time, I hands down would go with this."</p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center ">
-            <img className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture"/>
-            <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                <div>Bonnie Green</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 ">Developer at Open AI</div>
+{/* <!-- Component: Testimonial slider --> */}
+<h1 className="pt-40 text-center text-4xl">Testimonials</h1>
+<div className='xl:w-2/4 m-auto md:w-4/5 '>
+      <div className="pt-20 pb-28">
+      <Slider {...settings}>
+        {data.map((d) => (
+          <div key={d.name} className="bg-white h-[450px] text-black rounded-xl">
+            <div className='h-56 bg-indigo-500 flex justify-center items-center rounded-t-xl'>
+              <img src={d.img} alt="" className="h-44 w-44 rounded-full"/>
             </div>
-        </figcaption>    
-    </figure>
-    <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
-        <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Solid foundation for any project</h3>
-            <p className="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center ">
-            <img className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture"/>
-            <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                <div>Roberta Casas</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div>
+
+            <div className="flex flex-col items-center justify-center gap-4 p-4 ">
+            <div className="flex">
+            <img src={require("../assests/quotes.png")} className="w-10 mr-4"  />
+              <p className="text-xl font-semibold">{d.name}</p>
+              </div>
+              <p className="text-center">{d.review}</p>
+              <button className='bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl'>Read More</button>
             </div>
-        </figcaption>    
-    </figure>
-    <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-es-lg md:border-b-0 md:border-e dark:bg-gray-800 dark:border-gray-700">
-        <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Mindblowing workflow</h3>
-            <p className="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application."</p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center ">
-            <img className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture"/>
-            <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                <div>Jese Leos</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">Software Engineer at Facebook</div>
-            </div>
-        </figcaption>    
-    </figure>
-    <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-b-lg md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
-        <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Efficient Collaborating</h3>
-            <p className="my-4">You have many examples that can be used to create a fast prototype for your team."</p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center ">
-            <img className="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture"/>
-            <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                <div>Joseph McFall</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">CTO at Google</div>
-            </div>
-        </figcaption>    
-    </figure>
-</div>
-</div>
+          </div>
+        ))}
+      </Slider>
+      </div>
+      
+    </div>
+
+
+{/* <!-- End Testimonial slider --> */}
+
 <Footer/>
     </>
   )
 }
+
+const data = [
+    {
+      name: `John Morgan`,
+      img: `https://randomuser.me/api/portraits/women/2.jpg`,
+      review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },
+    {
+      name: `Ellie Anderson`,
+      img: `https://randomuser.me/api/portraits/women/79.jpg`,
+      review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },
+    {
+      name: `Nia Adebayo`,
+      img: `https://randomuser.me/api/portraits/women/42.jpg`,
+      review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },
+    {
+      name: `Rigo Louie`,
+      img: `https://randomuser.me/api/portraits/women/63.jpg`,
+      review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },
+    {
+      name: `Mia Williams`,
+      img: `https://randomuser.me/api/portraits/women/44.jpg`,
+      review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    },
+    
+  ];
+  
 
 export default Testimonials

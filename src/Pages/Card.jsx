@@ -23,3 +23,4 @@ const Card = ({title,img}) => {
 }
 
 export default Card
+

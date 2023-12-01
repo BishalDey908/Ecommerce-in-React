@@ -28,7 +28,7 @@ const About = () => {
                 <p id="info">Web Developer</p>
             </div>
             <div className="team-member">
-                <img id="img" src="me.jpg" className="madhav"/>
+                <img id="img" src={require("../assests/WhatsApp Image 2023-11-27 at 14.35.57_e39f5968.jpg")} className="madhav"/>
                 <h4 id="name">Madhav Choudhary</h4>
                 <p id="info">Web Developer</p>
             </div>
